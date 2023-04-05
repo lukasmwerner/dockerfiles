@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lukas Werner - {{.Title}}</title>
+		<link rel="stylesheet" href="/static/style.css">
+	</head>
+	<body>
+		<header>
+			<h1>{{.Title}}</h1>
+			<nav>
+				<a href="/">[Home]</a>
+			</nav>
+			<hr>
+		</header>
+		<article>
+			{{.Content}}
+		</article>
+		<footer>
+			<hr>
+			<p id="copy"></p>	
+			<p>Proudly Hosted on <a href="https://hafen.run">Hafen.run</a></p>
+		</footer>
+		<script>
+			var copy = document.getElementById("copy");
+			copy.innerHTML = "© " + new Date().getFullYear() + " Lukas Werner";
+		</script>
+	</body>
+</html>

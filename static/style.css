@@ -1,0 +1,62 @@
+body {
+	font-family: monospace;
+}
+header {
+	text-align: center;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+nav {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	gap: 3px;
+}
+footer {
+	text-align: center;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+.posts {
+	padding-left: 20%;
+	padding-right: 20%;
+}
+article {
+	padding-left: 20%;
+	padding-right: 20%;
+}
+article h1::before {
+	content: "# [";
+}
+article h1::after {
+	content: "]";
+}
+article h2::before {
+	content: "# [";
+}
+article h2::after {
+	content: "]";
+}
+article h3::before {
+	content: "# [";
+}
+article h3::after {
+	content: "]";
+}
+
+
+a, a:link {
+	color: black;
+	text-decoration: none;
+	font-style: italic;
+}
+a:hover {
+	color:black;
+	text-decoration: underline;
+}
+a:active {
+	color: black;
+	font-weight: bold;
+}
+
+
