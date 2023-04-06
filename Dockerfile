@@ -20,5 +20,6 @@ FROM scratch AS run
 
 COPY --from=build /out/app /
 # if needed
-EXPOSE 80 
+EXPOSE 8000
+
 ENTRYPOINT [ "/app" ]

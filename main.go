@@ -25,6 +25,9 @@ var homePage string
 //go:embed languages
 var postsFS embed.FS
 
+//go:embed static
+var staticFS embed.FS
+
 type Post struct {
 	Title   string
 	Content string
@@ -52,9 +55,9 @@ func main() {
 	}
 
 	p := pine.New()
-	fs := http.FileServer(http.Dir("./static"))
+	fs := http.FileServer(http.FS(staticFS))
 	p.Handle("/static", func(w http.ResponseWriter, r *http.Request) {
-		http.StripPrefix("/static", fs).ServeHTTP(w, r)
+		fs.ServeHTTP(w, r)
 	})
 	p.Handle("/lang/{key}", func(w http.ResponseWriter, r *http.Request) {
 
