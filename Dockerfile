@@ -1,6 +1,3 @@
-# Go Programming Language
-
-```dockerfile
 FROM golang:alpine AS build
 
 RUN apk add git
@@ -22,9 +19,6 @@ RUN go build -o /out/app .
 FROM scratch AS run
 
 COPY --from=build /out/app /
-
 # if needed
 EXPOSE 80 
-
 ENTRYPOINT [ "/app" ]
-```
