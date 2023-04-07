@@ -44,9 +44,14 @@ article h3::after {
 	content: "]";
 }
 
+pre {
+	background: black;
+	color: white;
+	padding: 1rem;
+}
 
 a, a:link {
-	color: black;
+	color: #008080;
 	text-decoration: none;
 	font-style: italic;
 }
