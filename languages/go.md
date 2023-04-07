@@ -13,8 +13,13 @@ RUN go mod download -x
 
 COPY . /src
 
+#Compiler Settings
 ENV CGO_ENABLED=0
+
+# for full parings check out https://go.dev/doc/install/source#environment
 ENV GOOS=linux
+# this will be the cpu arch
+# Can be amd64 arm64 386 ppc64
 ENV GOARCH=amd64
 
 RUN go build -o /out/app .
