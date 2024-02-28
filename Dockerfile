@@ -1,4 +1,4 @@
-FROM golang:alpine AS build
+FROM --platform=$BUILDPLATFORM golang:alpine AS build
 
 RUN apk add git
 
