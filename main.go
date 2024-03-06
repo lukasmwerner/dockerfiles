@@ -1,8 +1,10 @@
 package main
 
 import (
+	"bytes"
 	"embed"
 	"errors"
+	"fmt"
 	"io/fs"
 	"log"
 	"net/http"
@@ -12,6 +14,7 @@ import (
 
 	_ "embed"
 
+	"github.com/PuerkitoBio/goquery"
 	"github.com/lukasmwerner/pine"
 	"github.com/russross/blackfriday/v2"
 )
@@ -64,6 +67,17 @@ func main() {
 		p, ok := posts[r.URL.Path]
 		if !ok {
 			http.Error(w, errors.New("post not found").Error(), 404)
+			return
+		}
+
+		if r.URL.Query().Has("raw") {
+			buf := bytes.NewBufferString(p.Content)
+			doc, err := goquery.NewDocumentFromReader(buf)
+			if err != nil {
+				http.Error(w, errors.New("post not found").Error(), 404)
+				return
+			}
+			fmt.Fprintln(w, doc.Find("code").Text())
 			return
 		}
 
